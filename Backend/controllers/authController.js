@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt'
 import { insertUser } from '../models/authModel.js';
 
+
 export const registerUser=async(req,res)=>{
   const{name,email,phone,password,role}=req.body;
   
