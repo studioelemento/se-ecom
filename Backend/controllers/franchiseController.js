@@ -1,4 +1,6 @@
+import bcrypt from 'bcrypt';
 import { createFranchise } from '../models/franchiseModel.js';
+import sendMail from '../utils/sendMail.js';
 
 export const registerFranchise = async (req, res) => {
   try {
@@ -12,10 +14,23 @@ export const registerFranchise = async (req, res) => {
 
     const result = await createFranchise({ name, email, phone, password, frachise_id, stockist_id });
 
+    await sendMail(
+      email,
+      "Franchise Account Created",
+      `<h3>Hello ${name},</h3>
+      <p>Your Franchise ID is:<strong>${frachise_id}</strong></p>
+      <p>Temporary Password:<strong>${password}</strong></p>
+      <p>Please login and change your password after logging in for the first timet</p>
+      `
+    )
+
     return res.status(201).json({
-      message: "Franchise registered successfully",
+      message: "Franchise registered and mail send successfully",
       franchiseId: result.insertId
     });
+
+
+
     
   } catch (err) {
     return res.status(500).json({
