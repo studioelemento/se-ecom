@@ -22,6 +22,4 @@ export const registerUser=async(req,res)=>{
   }catch(err){
     res.status(500).json({message:'Database error',error:err.message})
   }
-
-
 }

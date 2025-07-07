@@ -7,8 +7,8 @@ export const insertUser=async (name,email,phone,password,role)=>{
 }
 
 export const findUserByIdentifier = async(identifier)=>{
-  const sql='select * from users where email= ? OR phone= ?';
-  const [rows]=await pool.query(sql,[identifier,identifier]);
+  const sql='select * from users where email= ? OR franchise_id=? or phone= ?';
+  const [rows]=await pool.query(sql,[identifier,identifier,identifier]);
   return rows[0]
 };
 

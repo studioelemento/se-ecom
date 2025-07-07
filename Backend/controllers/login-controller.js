@@ -11,13 +11,18 @@ export const loginUser=async(req,res)=>{
 
   if (!identifier|| !password) {
     return res.status(400).json({message:'identifier and password are required'});
-
   }
+
+
+
   try{
     const user=await findUserByIdentifier(identifier);
     if(!user){
       return res.status(404).json({message:'User not found'});
+    }
 
+    if (!user.is_active) {
+      return res.status(403).json({message:"Your account is inactive. Contact Support"})
     }
 
     const isMatch=await bcrypt.compare(password,user.password);
@@ -47,6 +52,8 @@ export const loginUser=async(req,res)=>{
         role:user.role
       }
     });
+
+
   }catch(error){
     res.status(500).json({message:'Login error',error:error.message})
   }
