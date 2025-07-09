@@ -1,0 +1,21 @@
+    const navigate = useNavigate();
+    
+    
+    
+    
+    
+    try{
+      const res = await axios.post('/auth/login',{ identifier,password})
+      const { token, user } = res.data;
+
+      localStorage.setItem('token',token);
+      localStorage.setItem('role',user.role);
+
+
+      if (user.role === 'stokist') navigate('/stokist');
+      else if (user.role === 'franchise') navigate('franchise');
+      else if (user.role === 'customer') navigate('customer');
+    }catch(err){
+      console.error(err);
+      alert('login failed.please check credentials');
+    }
