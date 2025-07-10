@@ -9,7 +9,7 @@ const StockistDashboard = () =>{
   return(
     <div>
       <h2>Welcome,Stockist</h2>
-      
+
       <button
         onClick={()=>navigate('/stockist/view-all-franchise')}
       >View Franchise</button>
@@ -18,7 +18,10 @@ const StockistDashboard = () =>{
         onClick={()=>navigate('/stockist/add-franchise')}
       >Add Franchise</button>
 
-      <button>View Franchise By Id</button>
+      <button
+        onClick={()=>navigate('/stockist/view-franchise-by-id')}
+      >View Franchise By Id</button>
+      
       <button>Toggle</button>
 
     </div>

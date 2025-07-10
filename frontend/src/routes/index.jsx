@@ -4,6 +4,7 @@ import LoginForm from "../components/LoginForm";
 import StockistDashboard from "../pages/StockistDashboard";
 import { ViewAllFrachise } from "../pages/ViewAllFranchise";
 import { AddFranchisee } from "../pages/AddFranchise";
+import { ViewFranchiseById } from "../pages/ViewFrachiseByID";
 
 
 const AppRoutes = () =>{
@@ -19,7 +20,7 @@ const AppRoutes = () =>{
 
     <Route path="stockist/view-all-franchise" element={<ViewAllFrachise/>} ></Route>
     <Route path="stockist/add-franchise" element={<AddFranchisee/>} ></Route>
-    
+    <Route path="/stockist/view-franchise-by-id" element={<ViewFranchiseById/>} ></Route>
 
 
 

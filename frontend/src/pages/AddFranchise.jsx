@@ -42,9 +42,6 @@ export const AddFranchisee=()=>{
     }
 
   }
-
-
-
   return(
     <div>
       <form onSubmit={handleSubmit}>

@@ -30,8 +30,8 @@ export const createFranchise = async ({ name, email, phone, password, franchise_
 
 
 export const getAllFranchisees = async (stockist_id) =>{
-  const sql = `select * from franchises where stockist_id = ?`;
-  const [rows] = await pool.query(sql, [stockist_id]);
+  const sql = `select * from users where role=?`;
+  const [rows] = await pool.query(sql, ['franchise']);
   return rows;
 }
 

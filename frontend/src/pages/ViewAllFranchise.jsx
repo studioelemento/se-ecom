@@ -46,6 +46,7 @@ export const ViewAllFrachise = () =>{
           <th>name</th>
           <th>Email</th>
           <th>Phone</th>
+          <th>status</th>
         </tr>
         </thead>
         <tbody>
@@ -55,6 +56,7 @@ export const ViewAllFrachise = () =>{
               <td>{f.name}</td>
               <td>{f.email}</td>
               <td>{f.phone}</td>
+              <td>{f.is_active ? 'active' : 'Inactive'}</td>
             </tr>
           ))}
         </tbody>
