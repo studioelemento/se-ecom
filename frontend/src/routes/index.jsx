@@ -2,6 +2,7 @@ import { Routes,Route } from "react-router-dom";
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import StockistDashboard from "../pages/StockistDashboard";
+import { ViewAllFrachise } from "../pages/ViewAllFranchise";
 
 
 const AppRoutes = () =>{
@@ -14,6 +15,12 @@ const AppRoutes = () =>{
 
     {/* Stockist Dashboard */}    
     <Route path="/stockist/dashboard" element={<StockistDashboard/>} ></Route>
+
+    <Route path="stockist/view-all-frachise" element={<ViewAllFrachise/>} ></Route>
+    
+
+
+
   </Routes>
   )
 }
