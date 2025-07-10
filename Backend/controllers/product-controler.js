@@ -5,11 +5,11 @@ export const addProduct = async (req, res) => {
     const product = req.body;
     console.log('Received from Postman:', product);
 
-    const result = await addProductToDb(product);
+    const result = await addProductToDb(product);  // result is the insert result object
 
     res.status(201).json({
       message: 'Product added successfully',
-      data: result.rows[0]
+      data: product  // Return the product or confirmation details
     });
   } catch (err) {
     console.error('Error in controller:', err.message);
